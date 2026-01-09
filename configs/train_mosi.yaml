@@ -18,15 +18,15 @@ dataset:
   dataPath: /root/autodl-fs/data/MSA_Datasets/MOSI/unaligned_50.pkl
 
 hardness:
-  enable: true # 开启开关
+  enable: true
 
-  estimator: # 难度估计器相关参数
-    alpha_direct: 0.50
-    alpha_indirect: 0.30
-    alpha_task: 0.20
-    alpha_miss: 0.0
-    beta: 2.5
+  estimator:
+    alpha_direct: 0.5
+    alpha_indirect: 0.3
+    alpha_task: 0.2
+    beta: 2.5 #2.5
     topk_ratio: 0.5
+    use_cos: true
 
   bank: # 用于存储历史难度信息
     momentum: 0.05
@@ -41,6 +41,8 @@ hardness:
     p_pred: 2.0
     p_rec: 1.5
     use_split_sources: true # True: 预测任务看预测误差，重构任务看重构误差
+    w_clip_min: 0.01
+    w_clip_max: 5.0
 
 model:
   feature_extractor:
